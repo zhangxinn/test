@@ -1,0 +1,253 @@
+import javax.swing.*; 
+import javax.swing.text.JTextComponent; 
+import java.util.StringTokenizer;
+import java.awt.*;  
+import java.awt.event.*;
+import java.math.*;
+public class Calculator implements ActionListener { 
+        JFrame jf=new JFrame("计算器"); 
+        JTextField tf=new JTextField();  
+        JPanel pnl;   
+        JButton jButtonDENG
+        JButton jButtonJIAN;  
+        JButton jButtonCHENG;  
+        JButton jButton1; 
+        JButton jButton2;
+        JButton jButton3; 
+        JButton jButton4; 
+        JButton jButton5;
+        JButton jButton6;  
+        JButton jButton7;  
+        JButton jButton8; 
+        JButton jButton9;
+        JButton jButton0; 
+        JButton jButtonCHU; 
+        JButton jButtonQINGKONG; 
+        JButton jButtonJIA; 
+        JButton jButtonQUYU;  
+        JButton jButtonPINGFANG;  
+        JButton jButtonXIAOSHUDIAN;
+        JButton jButtonBACKSPACE;
+
+       JButton jButtonDAOSHU;  
+       JButton jButtonKAIPINGFANG;
+       JButton jButtonERJINZHI;
+       JButton jButtonSHIJINZHI;  
+   public  Calculator (){ //初始化界面的方法 
+       Container c=jf.getContentPane(); 
+       tf.setHorizontalAlignment(JTextField.RIGHT); 
+       c.add(tf,"North");  
+       JPanel pnl=new JPanel(); 
+       c.add(pnl,"Center"); 
+       pnl.setLayout(new GridLayout(6,5));  
+       jButton1=new JButton("1");  
+       jButton1.addActionListener(this); 
+       pnl.add(jButton1);
+       jButton2=new JButton("2"); 
+       jButton2.addActionListener(this);  
+       pnl.add(jButton2); 
+       jButton3=new JButton("3");
+       jButton3.addActionListener(this);
+       pnl.add(jButton3);  
+       jButtonBACKSPACE=new JButton("backspace");            
+       jButtonBACKSPACE.addActionListener(this);
+       pnl.add(jButtonBACKSPACE); 
+       jButton4=new JButton("4"); 
+       jButton4.addActionListener(this);  
+       pnl.add(jButton4); 
+       jButton5=new JButton("5"); 
+       jButton5.addActionListener(this);
+       pnl.add(jButton5);  
+       jButton6=new JButton("6");   
+       jButton6.addActionListener(this);
+       pnl.add(jButton6);
+       jButtonJIA=new JButton("+"); 
+       jButtonJIA.addActionListener(this); 
+       pnl.add(jButtonJIA); 
+       jButton7=new JButton("7");
+       jButton7.addActionListener(this);
+       pnl.add(jButton7);  
+       jButton8=new JButton("8"); 
+       jButton8.addActionListener(this);
+       pnl.add(jButton8); 
+       jButton9=new JButton("9");
+       jButton9.addActionListener(this); 
+       pnl.add(jButton9);  
+       jButtonJIAN=new JButton("-");
+       jButtonJIAN.addActionListener(this);
+       pnl.add(jButtonJIAN);
+       jButton0=new JButton("0");  
+       jButton0.addActionListener(this);
+       pnl.add(jButton0);
+       jButtonQINGKONG=new JButton("清空"); 
+       jButtonQINGKONG.addActionListener(this); 
+       pnl.add(jButtonQINGKONG);
+       jButtonCHENG=new JButton("*");
+       jButtonCHENG.addActionListener(this);
+       pnl.add(jButtonCHENG); 
+       jButtonCHU=new JButton("/");  
+       jButtonCHU.addActionListener(this);
+       pnl.add(jButtonCHU);
+       jButtonQUYU=new JButton("%"); 
+       jButtonQUYU.addActionListener(this);  
+       pnl.add(jButtonQUYU);   
+       jButtonPINGFANG=new JButton("平方");
+       jButtonPINGFANG.addActionListener(this); 
+       pnl.add(jButtonPINGFANG); 
+       jButtonXIAOSHUDIAN=new JButton(".");   
+       jButtonXIAOSHUDIAN.addActionListener(this);  
+       pnl.add(jButtonXIAOSHUDIAN);
+       jButtonDENG=new JButton("=");
+       jButtonDENG.addActionListener(this);  
+       pnl.add(jButtonDENG); 
+       jButtonDAOSHU=new JButton("倒数"); 
+       jButtonDAOSHU.addActionListener(this);
+       pnl.add(jButtonDAOSHU); 
+       jButtonKAIPINGFANG=new JButton("开平方");  
+       jButtonKAIPINGFANG.addActionListener(this);  
+       pnl.add(jButtonKAIPINGFANG); 
+       jButtonERJINZHI=new JButton("二进制"); 
+       jButtonERJINZHI.addActionListener(this); 
+       pnl.add(jButtonERJINZHI); 
+       jButtonSHIJINZHI=new JButton("十进制");    
+       jButtonSHIJINZHI.addActionListener(this); 
+       pnl.add(jButtonSHIJINZHI); 
+       jf.setSize(600,400);  
+       jf.setVisible(true);  
+} 
+public void actionPerformed(ActionEvent event){//检测运算符的方法 
+try {   
+       double wen=0;  
+       String toknizer="+";  
+       String ben; 
+       String wenben=tf.getText()+event.getActionCommand(); 
+       tf.setText(wenben); //各运算符的判断运行代码
+           if(wenben.indexOf("*")!=-1) {  
+                   toknizer="*";  }   
+           if(wenben.indexOf("+")!=-1) {  
+                   toknizer="+";}  
+           if(wenben.indexOf("-")!=-1) {  
+                   toknizer="-";}
+           if(wenben.indexOf("/")!=-1) {   
+                   toknizer="/";  } 
+           if(wenben.indexOf("%")!=-1) {   
+                   toknizer="-”; }
+           if(wenben.indexOf("平方")!=-1) {
+                   toknizer="平方";} 
+           if(wenben.indexOf("倒数")!=-1) { 
+                   toknizer="倒数"; }  
+           if(wenben.indexOf("开平方")!=-1) {
+                   toknizer="开平方";  }  
+           if(wenben.indexOf("二进制")!=-1) {  
+                   toknizer="二进制";  } 
+           if(wenben.indexOf("十进制")!=-1) {
+                   toknizer="十进制";}  //各个运算符的运算方法代码  
+           if(event.getSource()==jButtonQINGKONG){   //清空算法 
+                   wenben=" ";  
+                   tf.setText(wenben);  } 
+            if(event.getSource()==jButtonBACKSPACE){      //清除算法 
+                   wenben=wenben.substring(0,wenben.length()-10; 
+                   tf.setText(wenben);  }  
+            if(event.getSource()==jButtonDENG){       //"="算法 
+                   wenben=wenben.substring(0,wenben.length()-1);
+                   double b[]=new double[10];
+                   String a[]=new String[15];
+                   StringTokenizer sun=new StringTokenizer(wenben,toknizer);
+                    int i=0;  
+                   while(sun.hasMoreTokens()){  
+                          a[i++]=sun.nextToken();  
+                  }
+                  for(int j=0;j<10;j++){ 
+                          String s=a[j]; 
+                          String k=a[j+1];
+                          if(s==null){  break;  
+                  } 
+                  else{ 
+                      if(toknizer=="*"){           //"*"算法
+                           if(j==0){wen=1;
+                                }   
+                      b[j]=Double.parseDouble(s); 
+                      wen=wen*b[j];  
+                      ben=Double.toString(wen); 
+                      tf.setText(wenben+"="+ben);  
+                     }
+                     if(toknizer=="+"){  //"+" 算法
+                                 if(j==0){wen=0;}
+                                 b[j]=Double.parseDouble(s);
+                                 wen=wen+b[j]; 
+                                 ben=Double.toString(wen);
+                                 tf.setText(wenben+"="+ben);  
+                     }
+                    if(toknizer=="-"){          //"-"算法
+                            b[j]=Double.parseDouble(s); 
+                            if(j==0){wen=2*b[j];}
+                            wen=wen-b[j];  
+                            ben=Double.toString(wen); 
+                            tf.setText(wenben+"="+ben);  
+                    } 
+                   if(toknizer=="/"){         // "/"算法
+                            b[j]=Double.parseDouble(s);
+                            if(j==0){wen=b[j]*b[j];}  
+                            wen=wen/b[j]; 
+                            ben=Double.toString(wen);  
+                            tf.setText(wenben+"="+ben); 
+                    }
+                   if(toknizer=="平方"){        //平方算法
+                            if(j==0){wen=1;}  
+                            b[j]=Double.parseDouble(s); 
+                            wen=wen*b[j]*b[j];  
+                            ben=Double.toString(wen); 
+                            tf.setText(wenben+"="+ben); 
+                    }   
+                   if(toknizer=="倒数"){          //倒数算法
+                            b[j]=Double.parseDouble(s);  
+                            wen=1/b[j];
+                            ben=Double.toString(wen);
+                            tf.setText(wenben+"="+ben); 
+                    } 
+                    if(toknizer=="开平方"){     //开平方算法
+                            if(j==0){wen=0;}
+                            b[j]=Double.parseDouble(s); 
+                        double wen1=sqrt(b[j]); 
+                        ben=Double.toString(wen1); 
+                        tf.setText(wenben+"="+ben);  
+                } 
+                JTextComponent textAnswer = null;
+                if (toknizer=="十进制") {        //二进制转为十进制代码       
+                        b[j]=Integer.parseInt(s);  
+                        wen =Integer.parseInt(s,2);     
+                        ben=Double.toString(wen); 
+                        tf.setText(wenben+"="+ben);    
+                } 
+               if (toknizer=="二进制") {   //十进制转换为二进制代码 
+                        int den =Integer.parseInt(s);    
+                        String daen = Integer.toBinaryString(den);     
+                        tf.setText(wenben+"="+daen);
+               } 
+               if(toknizer=="%"){          //"%"算法
+                        if(j==0){   
+                                b[j]=Double.parseDouble(s); 
+                                b[j+1]=Double.parseDouble(k); 
+                                if(b[j]<b[j+1]){  wen=b[j]; }
+                                if(b[j]==b[j+1]) {  wen=0; } 
+                               if(b[j]>b[j+1]) {  wen=b[j]%b[j+1];}
+                       } 
+                       if(j>1) {   
+                               b[j]=Double.parseDouble(a[j]); 
+                               wen=wen%b[j]; 
+                        }
+                           ben=Double.toString(wen);
+                           tf.setText(wenben+"="+ben);
+                 }
+             }
+         }
+  }
+catch(Exception e){  e.getMessage();  }   
+private int sqrt(double d) { // TODO Auto-generated method stub
+return 0;
+}
+//主函数 
+public static void main(String[]args) {
+    new Calculator();     //对小程序进行初始化 
+}
+}   
