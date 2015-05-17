@@ -145,10 +145,10 @@ try {
            if(event.getSource()==jButtonQINGKONG){   //清空算法 
                    wenben=" ";  
                    tf.setText(wenben);  } 
-            if(event.getSource()==jButtonBACKSPACE){      //清除算法 
+           if(event.getSource()==jButtonBACKSPACE){      //清除算法 
                    wenben=wenben.substring(0,wenben.length()-10; 
                    tf.setText(wenben);  }  
-            if(event.getSource()==jButtonDENG){       //"="算法 
+           if(event.getSource()==jButtonDENG){       //"="算法 
                    wenben=wenben.substring(0,wenben.length()-1);
                    double b[]=new double[10];
                    String a[]=new String[15];
@@ -170,44 +170,44 @@ try {
                       wen=wen*b[j];  
                       ben=Double.toString(wen); 
                       tf.setText(wenben+"="+ben);  
-                     }
-                     if(toknizer=="+"){  //"+" 算法
-                                 if(j==0){wen=0;}
-                                 b[j]=Double.parseDouble(s);
-                                 wen=wen+b[j]; 
-                                 ben=Double.toString(wen);
-                                 tf.setText(wenben+"="+ben);  
-                     }
-                    if(toknizer=="-"){          //"-"算法
-                            b[j]=Double.parseDouble(s); 
-                            if(j==0){wen=2*b[j];}
-                            wen=wen-b[j];  
-                            ben=Double.toString(wen); 
-                            tf.setText(wenben+"="+ben);  
-                    } 
-                   if(toknizer=="/"){         // "/"算法
-                            b[j]=Double.parseDouble(s);
-                            if(j==0){wen=b[j]*b[j];}  
-                            wen=wen/b[j]; 
-                            ben=Double.toString(wen);  
-                            tf.setText(wenben+"="+ben); 
+                   }
+                  if(toknizer=="+"){  //"+" 算法
+                      if(j==0){wen=0;}
+                      b[j]=Double.parseDouble(s);
+                      wen=wen+b[j]; 
+                      ben=Double.toString(wen);
+                      tf.setText(wenben+"="+ben);  
+                  }
+                  if(toknizer=="-"){          //"-"算法
+                      b[j]=Double.parseDouble(s); 
+                      if(j==0){wen=2*b[j];}
+                      wen=wen-b[j];  
+                      ben=Double.toString(wen); 
+                      tf.setText(wenben+"="+ben);  
+                  } 
+                  if(toknizer=="/"){         // "/"算法
+                      b[j]=Double.parseDouble(s);
+                      if(j==0){wen=b[j]*b[j];}  
+                      wen=wen/b[j]; 
+                      ben=Double.toString(wen);  
+                      tf.setText(wenben+"="+ben); 
                     }
                    if(toknizer=="平方"){        //平方算法
-                            if(j==0){wen=1;}  
-                            b[j]=Double.parseDouble(s); 
-                            wen=wen*b[j]*b[j];  
-                            ben=Double.toString(wen); 
-                            tf.setText(wenben+"="+ben); 
+                       if(j==0){wen=1;}  
+                       b[j]=Double.parseDouble(s); 
+                       wen=wen*b[j]*b[j];  
+                       ben=Double.toString(wen); 
+                       tf.setText(wenben+"="+ben); 
                     }   
                    if(toknizer=="倒数"){          //倒数算法
-                            b[j]=Double.parseDouble(s);  
-                            wen=1/b[j];
-                            ben=Double.toString(wen);
-                            tf.setText(wenben+"="+ben); 
+                        b[j]=Double.parseDouble(s);  
+                        wen=1/b[j];
+                        ben=Double.toString(wen);
+                        tf.setText(wenben+"="+ben); 
                     } 
                     if(toknizer=="开平方"){     //开平方算法
-                            if(j==0){wen=0;}
-                            b[j]=Double.parseDouble(s); 
+                        if(j==0){wen=0;}
+                        b[j]=Double.parseDouble(s); 
                         double wen1=sqrt(b[j]); 
                         ben=Double.toString(wen1); 
                         tf.setText(wenben+"="+ben);  
@@ -239,15 +239,15 @@ try {
                            ben=Double.toString(wen);
                            tf.setText(wenben+"="+ben);
                  }
-             }
-         }
-  }
-catch(Exception e){  e.getMessage();  }   
-private int sqrt(double d) { // TODO Auto-generated method stub
-return 0;
-}
-//主函数 
-public static void main(String[]args) {
-    new Calculator();     //对小程序进行初始化 
-}
-}   
+              }
+            }
+        }
+        catch(Exception e){  e.getMessage();  }   
+        private int sqrt(double d) { // TODO Auto-generated method stub
+            return 0;
+        }
+         //主函数 
+        public static void main(String[]args) {
+              new Calculator();     //对小程序进行初始化 
+        }
+  }   
